@@ -1,120 +1,166 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 using namespace std;
-
-int gradePoint(string grade) {
-    if (grade == "O") return 10;
-    else if (grade == "A+") return 9;
-    else if (grade == "A") return 8;
-    else if (grade == "B+") return 7;
-    else if (grade == "B") return 6;
-    else if (grade == "C") return 5;
-    else return 0;
+int gradePoint(string grade){
+if (grade == "O") {
+return 10;
 }
-
-string calculateGrade(int total) {
-    if (total >= 90) return "O";
-    else if (total >= 80) return "A+";
-    else if (total >= 70) return "A";
-    else if (total >= 60) return "B+";
-    else if (total >= 50) return "B";
-    else if (total >= 35) return "C";
-    else return "F";
+else if (grade == "A+") {
+return 9;
 }
-
-int main() {
-
-    string branch;
-    int theoryCount, labCount;
-
-    cout << "Enter Branch Name: ";
-    getline(cin, branch);
-
-    cout << "Enter number of theory subjects: ";
-    cin >> theoryCount;
-
-    cout << "Enter number of labs: ";
-    cin >> labCount;
-
-    int totalSubjects = theoryCount + labCount;
-
-    string subject[25];
-        int marks[25];
-        float credit[25];
-        string grade[25];
-        int grade_point[25];
-
-
-    // THEORY SUBJECTS
-    for (int i = 0; i < theoryCount; i++) {
-        cin.ignore();
-        cout << "\nEnter subject name: ";
-        getline(cin, subject[i]);
-
-        int assignment, mid, endsem;
-        cout << "Assignment (0-20): ";
-        cin >> assignment;
-        cout << "Mid-sem (0-30): ";
-        cin >> mid;
-        cout << "End-sem (0-50): ";
-        cin >> endsem;
-
-        marks[i] = assignment + mid + endsem;
-
-        cout << "Enter credit for " << subject[i] << ": ";
-        cin >> credit[i];
-    }
-
-    // LAB SUBJECTS
-    for (int i = theoryCount; i < totalSubjects; i++) {
-        cin.ignore();
-        cout << "\nEnter lab name: ";
-        getline(cin, subject[i]);
-
-        cout << "Enter total marks (out of 100): ";
-        cin >> marks[i];
-
-        cout << "Enter credit for " << subject[i] << ": ";
-        cin >> credit[i];
-    }
-        // EXTRA CURRICULAR ACTIVITY
-        char hasActivity;
-        cout << "\nDo you have extra-curricular activity (Y/N)? ";
-        cin >> hasActivity;
-
-        if (hasActivity == 'Y' || hasActivity == 'y') {
-            cin.ignore();
-            cout << "Enter activity name (Yoga / NCC / NSS): ";
-            getline(cin, subject[totalSubjects]);
-
-            cout << "Enter marks (out of 100): ";
-            cin >> marks[totalSubjects];
-
-            cout << "Enter credit : ";
-            cin >> credit[totalSubjects];
-
-    totalSubjects++;   
+else if (grade == "A") {
+return 8;
 }
-    // GRADE CALCULATION
-    float totalCredit = 0, totalGradePoint = 0;
-
-    cout << "\n------ RESULT ------\n";
-
-    for (int i = 0; i < totalSubjects; i++) {
-        grade[i] = calculateGrade(marks[i]);
-        grade_point[i] = gradePoint(grade[i]);
-
-        cout << subject[i] << " : " << grade[i] << endl;
-
-        totalCredit += credit[i];
-        totalGradePoint += credit[i] * grade_point[i];
-    }
-
-    float CGPA = totalGradePoint / totalCredit;
-
-    cout << "\nBranch: " << branch << endl;
-    cout << "Total Credits: " << totalCredit << endl;
-    cout << "CGPA: " << CGPA << endl;
-
-    return 0;
+else if (grade == "B+") {
+return 7;
+}
+else if (grade == "B"){
+return 6;
+}
+else if (grade == "C") {
+return 5;
+}
+else return 0;
+}
+int main(){
+int Total_marks[11];
+int midsemmarks[6];
+int endsemmarks[6];
+int assignmentmarks[6];
+string grade[11];
+int grade_point[11];
+cout<< "Enter the mark in Physics : " << endl;
+do {
+    cout << "Enter Assignment marks (0-20): ";
+    cin >> assignmentmarks[0];
+} while (assignmentmarks[0] < 0 || assignmentmarks[0] > 20);
+do {
+    cout << "Enter End-sem marks (0-50): ";
+    cin >> endsemmarks[0];
+} while (endsemmarks[0] < 0 || endsemmarks[0] > 50);
+do {
+    cout << "Enter Mid-sem marks (0-30): ";
+    cin >> midsemmarks[0];
+} while (midsemmarks[0] < 0 || midsemmarks[0] > 30);
+cout<< "Enter the mark in Math : " << endl;
+do {
+    cout << "Enter Assignment marks (0-20): ";
+    cin >> assignmentmarks[1];
+} while (assignmentmarks[1] < 0 || assignmentmarks[1] > 20);
+do {
+    cout << "Enter End-sem marks (0-50): ";
+    cin >> endsemmarks[1];
+} while (endsemmarks[1] < 0 || endsemmarks[1] > 50);
+do {
+    cout << "Enter Mid-sem marks (0-30): ";
+    cin >> midsemmarks[1];
+} while (midsemmarks[1] < 0 || midsemmarks[1] > 30);
+cout<< "Enter the mark in C and Data Structure : " << endl;
+do {
+    cout << "Enter Assignment marks (0-20): ";
+    cin >> assignmentmarks[2];
+} while (assignmentmarks[2] < 0 || assignmentmarks[2] > 20);
+do {
+    cout << "Enter End-sem marks (0-50): ";
+    cin >> endsemmarks[2];
+} while (endsemmarks[2] < 0 || endsemmarks[2] > 50);
+do {
+    cout << "Enter Mid-sem marks (0-30): ";
+    cin >> midsemmarks[2];
+} while (midsemmarks[2] < 0 || midsemmarks[2] > 30);
+cout<< "Enter the mark in Basic Electrical Engineering : " << endl;
+do {
+    cout << "Enter Assignment marks (0-20): ";
+    cin >> assignmentmarks[3];
+} while (assignmentmarks[3] < 0 || assignmentmarks[3] > 20);
+do {
+    cout << "Enter End-sem marks (0-50): ";
+    cin >> endsemmarks[3];
+} while (endsemmarks[3] < 0 || endsemmarks[3] > 50);
+do {
+    cout << "Enter Mid-sem marks (0-30): ";
+    cin >> midsemmarks[3];
+} while (midsemmarks[3] < 0 || midsemmarks[3] > 30);
+cout<< "Enter the mark in Basic Manufacturing Engineering : " << endl;
+do {
+    cout << "Enter Assignment marks (0-20): ";
+    cin >> assignmentmarks[4];
+} while (assignmentmarks[4] < 0 || assignmentmarks[4] > 20);
+do {
+    cout << "Enter End-sem marks (0-50): ";
+    cin >> endsemmarks[4];
+} while (endsemmarks[4] < 0 || endsemmarks[4] > 50);
+do {
+    cout << "Enter Mid-sem marks (0-30): ";
+    cin >> midsemmarks[4];
+} while (midsemmarks[4] < 0 || midsemmarks[4] > 30);
+cout<< "Enter the mark in English for Technical Writing : " << endl;
+do {
+    cout << "Enter Assignment marks (0-20): ";
+    cin >> assignmentmarks[5];
+} while (assignmentmarks[5] < 0 || assignmentmarks[5] > 20);
+do {
+    cout << "Enter End-sem marks (0-50): ";
+    cin >> endsemmarks[5];
+} while (endsemmarks[5] < 0 || endsemmarks[5] > 50);
+do {
+    cout << "Enter Mid-sem marks (0-30): ";
+    cin >> midsemmarks[5];
+} while (midsemmarks[5] < 0 || midsemmarks[5] > 30);
+cout << "Enter your marks in Physics Lab : " <<endl;
+cin >> Total_marks[6];
+cout << "Enter your marks in BEE Lab : " <<endl;
+cin >> Total_marks[7];
+cout << "Enter your marks in Programming Lab : " <<endl;
+cin >> Total_marks[8];
+cout << "Enter your marks in CREW Lab : " <<endl;
+cin >> Total_marks[9];
+cout << "Enter your marks in Yoga : " <<endl;
+cin >> Total_marks[10];
+for (int i = 0; i<=10;i++){
+if (i<=5){
+    Total_marks[i]=midsemmarks[i]+endsemmarks[i]+assignmentmarks[i];
+}
+if (Total_marks[i]<=100 && Total_marks[i]>= 90){
+cout << "Your grade is 'O'" << endl;
+grade[i] = "O";
+}
+else if(Total_marks[i] >=80 && Total_marks[i]< 90){
+cout << "Your grade is 'A+'" << endl;
+grade[i] = "A+";
+}
+else if (Total_marks[i] >=70 && Total_marks[i]< 80){
+    cout << "Your grade is 'A'" << endl;
+    grade[i] = "A";
+}
+else if (Total_marks[i] >=60 && Total_marks[i]< 70){
+    cout << "Your grade is 'B+'" << endl;
+    grade[i] = "B+";
+}
+else if (Total_marks[i] >=50 && Total_marks[i]< 60){
+    cout << "Your grade is 'B'" << endl;
+    grade[i] = "B";
+}
+else if(Total_marks[i] >=35 && Total_marks[i]< 50){
+    cout << "Your grade is 'C'" << endl;
+    grade[i] = "C";
+}
+else if (Total_marks[i] < 35){
+    cout << "Your grade is 'F' " << endl;
+    grade[i] = "F";
+}
+grade_point[i] = gradePoint(grade[i]);
+}
+float credit[11] = {3,3,3,2,2,2,1.5,1.5,1.5,1.5,1};
+float Total_credit= 0;
+float Total_Gradepoint = 0;
+for (int i=0;i<11;i++){
+Total_credit+=credit[i];
+Total_Gradepoint += credit[i]*grade_point[i];
+}
+cout << " Your total grade point : " << Total_Gradepoint << endl;
+cout << " The total credit is : " << Total_credit << endl;
+float CGPA = (float) Total_Gradepoint/ (float) Total_credit;
+cout << "Your CGPA is : " << CGPA << endl;
+return 0;
 }
