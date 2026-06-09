@@ -1,2 +1,2 @@
 # cgpa-calculator
-to calculate CGPA of the semesters
+to calculate CGPA of the semester
